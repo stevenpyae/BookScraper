@@ -6,3 +6,10 @@ BookScraper/
 │   └── books.csv             # Output data
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Setup and run instructions
+
+Resolution References: https://www.youtube.com/watch?v=POPqi7oHUU8&ab_channel=TheCodeCity
+
+# Regex references 
+import re
+# ...
+"price_gbp": float(re.sub(r"[^\d.]", "", price))
