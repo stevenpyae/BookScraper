@@ -7,7 +7,7 @@ import pandas as pd           # For converting our data to CSV
 import time                   # For adding delay between requests
 
 # Base URL pattern with a placeholder for the page number (1, 2, 3, ...)
-BASE_URL = "http://books.toscrape.com/catalogue/page-{}.html"
+BASE_URL = "https://books.toscrape.com/catalogue/page-{}.html"
 
 # Output location for the final CSV file
 OUTPUT_FILE = "output/books.csv"

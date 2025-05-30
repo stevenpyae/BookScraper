@@ -2,6 +2,7 @@
 # utils/html_parser.py
 
 from bs4 import BeautifulSoup
+import re
 
 def extract_book_data(html: str) -> list: #html 
     """
@@ -38,7 +39,8 @@ def extract_book_data(html: str) -> list: #html
         # Append extracted info to our results list
         extracted_data.append({
             "title": title,
-            "price_gbp": float(price),
+            # common artifact in html
+            "price_gbp": float(re.sub(r"[^\d.]", "", price)),  # Convert price to float after removing currency symbol
             "rating": rating,
             "availability": availability,
         })
