@@ -1,0 +1,8 @@
+BookScraper/
+├── scraper.py                # Main script for scraping
+├── utils/
+│   └── html_parser.py        # Helper functions for parsing
+├── output/
+│   └── books.csv             # Output data
+├── requirements.txt          # Python dependencies
+└── README.md                 # Setup and run instructions
