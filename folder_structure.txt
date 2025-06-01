@@ -13,3 +13,8 @@ Resolution References: https://www.youtube.com/watch?v=POPqi7oHUU8&ab_channel=Th
 import re
 # ...
 "price_gbp": float(re.sub(r"[^\d.]", "", price))
+
+
+# To use Selenium You need 
+pip install selenium pandas beautifulsoup4
+

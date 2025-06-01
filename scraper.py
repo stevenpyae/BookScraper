@@ -2,9 +2,11 @@
 
 # Import the helper functions we defined for parsing and pagination
 from utils.html_parser import extract_book_data
+
 import requests               # For making HTTP requests to the website
 import pandas as pd           # For converting our data to CSV
 import time                   # For adding delay between requests
+import csv
 
 # Base URL pattern with a placeholder for the page number (1, 2, 3, ...)
 BASE_URL = "https://books.toscrape.com/catalogue/page-{}.html"
@@ -72,6 +74,7 @@ def main():
     book_data = scrape_books(max_pages=20)  # Scrape up to 20 pages (1000 books max)
     
     save_to_csv(book_data)                  # Save the results to a CSV file
+
 
 # This ensures the script runs only when executed directly (not on import)
 if __name__ == "__main__":

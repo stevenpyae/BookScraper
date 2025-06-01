@@ -2,7 +2,8 @@
 # utils/html_parser.py
 
 from bs4 import BeautifulSoup
-import re
+from utils import basic_text_cleaning  # This module contains text cleaning functions
+
 
 def extract_book_data(html: str) -> list: #html 
     """
@@ -25,7 +26,7 @@ def extract_book_data(html: str) -> list: #html
         title = book.h3.a["title"]
 
         # Extract the price (e.g., "£51.77") and clean it to just the number
-        price = book.select_one(".price_color").text.strip().replace("£", "")
+        price = book.select_one(".price_color")
 
         # Extract star rating from the class list (e.g., ['star-rating', 'Three'])
         rating_class = book.select_one(".star-rating")["class"]
@@ -38,9 +39,9 @@ def extract_book_data(html: str) -> list: #html
 
         # Append extracted info to our results list
         extracted_data.append({
-            "title": title,
+            "title": basic_text_cleaning.clean_text(title),  # Clean title text
             # common artifact in html
-            "price_gbp": float(re.sub(r"[^\d.]", "", price)),  # Convert price to float after removing currency symbol
+            "price_gbp": basic_text_cleaning.clean_price(price),  # Convert price to float after removing currency symbol
             "rating": rating,
             "availability": availability,
         })
